@@ -139,7 +139,7 @@ Here is a snippet of game play and some screen shots so far. I don’t want to g
   font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, #disqus_thread {
+h1, h2, h3, h4, h5, h6, p, a {
   font-family: '04b_03', sans-serif;
 }
 
@@ -388,28 +388,14 @@ main[role="main"] {
 </ul>
 
       <div class="mt6 instapaper_ignoref">
-        
-        <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "abeacongame" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-	
+        <div id="cusdis_thread"
+         data-host="https://cusdis.com"
+         data-app-id="70774b48-8a2c-4760-b907-fb687d608527"
+         data-page-id="/posts/devlog-001/"
+         data-page-url="http://localhost:1313/posts/devlog-001/"
+         data-page-title="Devlog 1 - What is A Beacon?"
+         data-theme="dark"></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
       </div>
       
       
@@ -526,33 +512,6 @@ main[role="main"] {
 </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

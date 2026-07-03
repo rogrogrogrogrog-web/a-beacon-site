@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on A medieval misadventure</title>
-		<link>https://abeacongame.com/posts/</link>
+		<link>http://localhost:1313/posts/</link>
 		<description>Recent content in Posts on A medieval misadventure</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Fri, 26 Jun 2026 16:48:48 +0100</lastBuildDate>
 		
-			<atom:link href="https://abeacongame.com/posts/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Devlog 1 - What is A Beacon?</title>
-				<link>https://abeacongame.com/posts/devlog-001/</link>
+				<link>http://localhost:1313/posts/devlog-001/</link>
 				<pubDate>Fri, 26 Jun 2026 16:48:48 +0100</pubDate>
-				<guid>https://abeacongame.com/posts/devlog-001/</guid>
+				<guid>http://localhost:1313/posts/devlog-001/</guid>
 				<description>&lt;p&gt;A Beacon is a point-and-click adventure set in a dark medieval fantasy world, with humor — actual humor, not the odd giggle buried in 14 hours of fetch quests. I am heavily influenced by Monkey Island, Monty Python and early Blackadder comedy-stylings.&lt;/p&gt;&#xA;&lt;p&gt;Build wise it is a solo project I&amp;rsquo;m working on using s&amp;amp;box engine and illustrating everything by hand in Adobe Fresco. It&amp;rsquo;s early days but yeah.&lt;/p&gt;&#xA;&lt;p&gt;Here is a snippet of game play and some screen shots so far. I don&amp;rsquo;t want to give away too much so here&amp;rsquo;s a sneak-peak. More too come as and when 🪦&lt;/p&gt;</description>
 			</item>
 	</channel>

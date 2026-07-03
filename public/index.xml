@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>A medieval misadventure</title>
-		<link>https://abeacongame.com/</link>
+		<link>http://localhost:1313/</link>
 		<description>Recent content on A medieval misadventure</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -12,27 +12,27 @@
 		
 			<lastBuildDate>Fri, 26 Jun 2026 16:48:48 +0100</lastBuildDate>
 		
-			<atom:link href="https://abeacongame.com/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Devlog 1 - What is A Beacon?</title>
-				<link>https://abeacongame.com/posts/devlog-001/</link>
+				<link>http://localhost:1313/posts/devlog-001/</link>
 				<pubDate>Fri, 26 Jun 2026 16:48:48 +0100</pubDate>
-				<guid>https://abeacongame.com/posts/devlog-001/</guid>
+				<guid>http://localhost:1313/posts/devlog-001/</guid>
 				<description>&lt;p&gt;A Beacon is a point-and-click adventure set in a dark medieval fantasy world, with humor — actual humor, not the odd giggle buried in 14 hours of fetch quests. I am heavily influenced by Monkey Island, Monty Python and early Blackadder comedy-stylings.&lt;/p&gt;&#xA;&lt;p&gt;Build wise it is a solo project I&amp;rsquo;m working on using s&amp;amp;box engine and illustrating everything by hand in Adobe Fresco. It&amp;rsquo;s early days but yeah.&lt;/p&gt;&#xA;&lt;p&gt;Here is a snippet of game play and some screen shots so far. I don&amp;rsquo;t want to give away too much so here&amp;rsquo;s a sneak-peak. More too come as and when 🪦&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Contact</title>
-				<link>https://abeacongame.com/contact/</link>
+				<link>http://localhost:1313/contact/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://abeacongame.com/contact/</guid>
-				<description>&lt;p&gt;Send me a glorious and interesting message and I will ream over it at my leisure.&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;form class=&#34;form-contact black-80 sans-serif&#34; accept-charset=&#34;UTF-8&#34; action=&#34;https://formspree.io/f/maqgopan&#34; method=&#34;POST&#34; role=&#34;form&#34; data-next=&#34;https://abeacongame.com/thanks/&#34;&gt;&#xA;&#xA;    &#xA;    &#xA;      &lt;input type=&#34;hidden&#34; name=&#34;_next&#34; value=&#34;https://abeacongame.com/thanks/&#34; /&gt;&#xA;    &#xA;    &#xA;      &lt;input type=&#34;hidden&#34; name=&#34;_subject&#34; value=&#34;A Beacon site: new message&#34; /&gt;&#xA;    &#xA;    &#xA;    &lt;input type=&#34;text&#34; name=&#34;_gotcha&#34; style=&#34;display:none&#34; tabindex=&#34;-1&#34; autocomplete=&#34;off&#34; /&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34;  for=&#34;name&#34;&gt;Your Name&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;name&#34;/&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;email&#34;/&gt;&#xA;    &lt;div class=&#34;requirements f6 gray glow i ph3 overflow-hidden&#34;&gt;&#xA;      An email address is required.&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;message&#34;&gt;Message&lt;/label&gt;&#xA;    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn h4&#34; aria-labelledby=&#34;message&#34;&gt;&lt;/textarea&gt;&#xA;&#xA;    &lt;input class=&#34;form-contact__submit db w-100 mv2 white pa3 bn hover-shadow hover-bg-black bg-animate bg-black&#34; type=&#34;submit&#34; value=&#34;Send&#34; /&gt;&#xA;    &lt;p class=&#34;form-contact__error red f6 mt2&#34; hidden&gt;&lt;/p&gt;</description>
+				<guid>http://localhost:1313/contact/</guid>
+				<description>&lt;p&gt;Send me a glorious and interesting message and I will ream over it at my leisure.&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;form class=&#34;form-contact black-80 sans-serif&#34; accept-charset=&#34;UTF-8&#34; action=&#34;https://formspree.io/f/maqgopan&#34; method=&#34;POST&#34; role=&#34;form&#34; data-next=&#34;http://localhost:1313/thanks/&#34;&gt;&#xA;&#xA;    &#xA;    &#xA;      &lt;input type=&#34;hidden&#34; name=&#34;_next&#34; value=&#34;http://localhost:1313/thanks/&#34; /&gt;&#xA;    &#xA;    &#xA;      &lt;input type=&#34;hidden&#34; name=&#34;_subject&#34; value=&#34;A Beacon site: new message&#34; /&gt;&#xA;    &#xA;    &#xA;    &lt;input type=&#34;text&#34; name=&#34;_gotcha&#34; style=&#34;display:none&#34; tabindex=&#34;-1&#34; autocomplete=&#34;off&#34; /&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34;  for=&#34;name&#34;&gt;Your Name&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;name&#34;/&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;email&#34;/&gt;&#xA;    &lt;div class=&#34;requirements f6 gray glow i ph3 overflow-hidden&#34;&gt;&#xA;      An email address is required.&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;message&#34;&gt;Message&lt;/label&gt;&#xA;    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn h4&#34; aria-labelledby=&#34;message&#34;&gt;&lt;/textarea&gt;&#xA;&#xA;    &lt;input class=&#34;form-contact__submit db w-100 mv2 white pa3 bn hover-shadow hover-bg-black bg-animate bg-black&#34; type=&#34;submit&#34; value=&#34;Send&#34; /&gt;&#xA;    &lt;p class=&#34;form-contact__error red f6 mt2&#34; hidden&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Thanks!</title>
-				<link>https://abeacongame.com/thanks/</link>
+				<link>http://localhost:1313/thanks/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://abeacongame.com/thanks/</guid>
-				<description>&lt;p&gt;Thank you for what I can only imagine is the kindest message I will receive all week. May ye live a long and useful life.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://abeacongame.com/&#34;&gt;← Back to the front page&lt;/a&gt;&lt;/p&gt;</description>
+				<guid>http://localhost:1313/thanks/</guid>
+				<description>&lt;p&gt;Thank you for what I can only imagine is the kindest message I will receive all week. May ye live a long and useful life.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/&#34;&gt;← Back to the front page&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

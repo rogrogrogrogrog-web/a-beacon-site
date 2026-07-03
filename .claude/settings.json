@@ -9,7 +9,9 @@
       "WebFetch(domain:www.grumpygamer.com)",
       "Bash(echo \"--- EXIT $? ---\")",
       "WebFetch(domain:gohugo.io)",
-      "Bash(hugo)"
+      "Bash(hugo)",
+      "WebFetch(domain:cusdis.com)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

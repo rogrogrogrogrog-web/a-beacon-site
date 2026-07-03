@@ -3,10 +3,6 @@ languageCode = 'en-gb'
 title = 'A medieval misadventure'
 theme = 'ananke'
 
-[services]
-  [services.disqus]
-    shortname = 'abeacongame'
-
 [params]
   background_color_class = "bg-black"
   body_classes = "avenir bg-near-black white"
@@ -15,6 +11,10 @@ theme = 'ananke'
   site_logo = "/images/logo.png"
   footer_title = "A Beacon"
   text_color = "washed-yellow"
+
+  [params.cusdis]
+    host = "https://cusdis.com"
+    app_id = "70774b48-8a2c-4760-b907-fb687d608527"
 
 [[menus.main]]
   name = "Home"
