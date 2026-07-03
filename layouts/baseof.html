@@ -76,7 +76,10 @@
       <div class="page-content flex-auto min-w-0">
         {{ block "main" . }}{{ end }}
       </div>
-      {{ partials.Include "screenshot-sidebar.html" . }}
+      {{ $hide_sidebar := or (eq .Section "posts") (.Param "hide_sidebar") }}
+      {{ if not $hide_sidebar }}
+        {{ partials.Include "screenshot-sidebar.html" . }}
+      {{ end }}
       {{- partials.Include "hook.html" (dict "hook" "main-after" "context" .) -}}
     </main>
     {{- partials.Include "hook.html" (dict "hook" "footer-before" "context" .) -}}
