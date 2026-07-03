@@ -3,6 +3,10 @@ languageCode = 'en-gb'
 title = 'A medieval misadventure'
 theme = 'ananke'
 
+[services]
+  [services.disqus]
+    shortname = 'abeacongame'
+
 [params]
   background_color_class = "bg-black"
   body_classes = "avenir bg-near-black white"
