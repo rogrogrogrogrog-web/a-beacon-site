@@ -1,0 +1,14 @@
+{{- /*
+  Wraps every Markdown image (![alt](src)) in an anchor that triggers the
+  site-wide lightbox defined in layouts/_partials/screenshot-sidebar.html.
+
+  Resolves bundle-local filenames (e.g. montage1.jpg) via Page Resources so
+  they become absolute URLs; external URLs (http://…) pass through unchanged.
+*/ -}}
+{{- $src := .Destination -}}
+{{- with .Page.Resources.GetMatch $src -}}
+  {{- $src = .RelPermalink -}}
+{{- end -}}
+<a href="{{ $src | safeURL }}" data-lightbox data-alt="{{ .PlainText }}" class="db mv3">
+  <img src="{{ $src | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" class="db mw-100" />
+</a>

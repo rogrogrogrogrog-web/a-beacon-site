@@ -1,0 +1,7 @@
+{{- /*
+  Render every Markdown link. External URLs (http:// or https://) open in a
+  new tab with rel="noopener noreferrer" for safety. Internal links behave
+  normally.
+*/ -}}
+{{- $external := or (strings.HasPrefix .Destination "http://") (strings.HasPrefix .Destination "https://") -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}</a>
