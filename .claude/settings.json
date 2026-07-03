@@ -11,7 +11,8 @@
       "WebFetch(domain:gohugo.io)",
       "Bash(hugo)",
       "WebFetch(domain:cusdis.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
