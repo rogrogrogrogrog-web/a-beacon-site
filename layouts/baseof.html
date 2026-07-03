@@ -85,6 +85,7 @@
     {{- partials.Include "hook.html" (dict "hook" "footer-before" "context" .) -}}
     {{ block "footer" . }}{{ partials.IncludeCached "site-footer.html" . }}{{ end }}
     {{- partials.Include "hook.html" (dict "hook" "footer-after" "context" .) -}}
+    {{ partials.Include "lightbox.html" . }}
     {{- partials.Include "hook.html" (dict "hook" "body-end" "context" .) -}}
   </body>
 </html>

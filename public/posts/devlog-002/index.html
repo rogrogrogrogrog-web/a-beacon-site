@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>A Beacon a medieval misadventure game</title>
@@ -16,11 +16,11 @@ FYI I use Adobe Fresco
     
     
     
-      <meta name="robots" content="noindex, nofollow">
+      <meta name="robots" content="index, follow">
     
     
 
-    <link rel="stylesheet" href="/ananke/css/main.css">
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous">
     <script>
   (function () {
     "use strict";
@@ -103,10 +103,10 @@ FYI I use Adobe Fresco
     
 
     
-      <link rel="canonical" href="http://localhost:1313/posts/devlog-002/">
+      <link rel="canonical" href="https://abeacongame.com/posts/devlog-002/">
     
 
-    <meta property="og:url" content="http://localhost:1313/posts/devlog-002/">
+    <meta property="og:url" content="https://abeacongame.com/posts/devlog-002/">
 	<meta property="og:site_name" content="A medieval misadventure">
 	<meta property="og:title" content="Devlog 2 - Setting the Scene">
 	<meta property="og:description" content="Above is a montage of some new scenes I’ve been working on. Not In-Game Footage — unlike GTA 6, this will be very close to the actual artwork (not a realistic or valid comparison, I know).
@@ -128,6 +128,8 @@ FYI I use Adobe Fresco , and I highly recommend it. It’s totally free and very
 	<meta name="twitter:description" content="Above is a montage of some new scenes I’ve been working on. Not In-Game Footage — unlike GTA 6, this will be very close to the actual artwork (not a realistic or valid comparison, I know).
 FYI I use Adobe Fresco , and I highly recommend it. It’s totally free and very easy to use. Randomly, I started this project with the graveyard scene. I was in Wales visiting family and started doodling in Fresco. I then realised I’d spent hours on it finger‑painting. So I bought an iPad Pro and a Pencil and started adding to it and creating more pieces.">
 
+      
+    
 	<style>
 @font-face {
   font-family: 'alkhemikal';
@@ -318,7 +320,7 @@ main[role="main"] {
 
 </style>
 
-  </head><body class="ma0 avenir bg-near-black white development is-page is-page page-devlog-002">
+  </head><body class="ma0 avenir bg-near-black white production is-page is-page page-devlog-002">
    
   
 
@@ -368,7 +370,7 @@ main[role="main"] {
 
   <article class="page-devlog-002 flex-l mw7 center ph3 flex-wrap justify-between">
     <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
-    <a class="link dim white-50" href="http://localhost:1313/posts/">Posts</a>
+    <a class="link dim white-50" href="https://abeacongame.com/posts/">Posts</a>
   </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1  mt3 mb1">Devlog 2 - Setting the Scene</h1>
       
@@ -406,7 +408,7 @@ main[role="main"] {
          data-host="https://cusdis.com"
          data-app-id="70774b48-8a2c-4760-b907-fb687d608527"
          data-page-id="/posts/devlog-002/"
-         data-page-url="http://localhost:1313/posts/devlog-002/"
+         data-page-url="https://abeacongame.com/posts/devlog-002/"
          data-page-title="Devlog 2 - Setting the Scene"
          data-theme="dark"></div>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
@@ -419,906 +421,76 @@ main[role="main"] {
       
       </main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://abeacongame.com/" >
     &copy;  A Beacon 2026 
   </a>
     <div><div class="ananke-socials"></div>
 </div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+  <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
+  <img class="lightbox__img" alt="">
+  <div class="lightbox__video">
+    <iframe class="lightbox__iframe" title="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+    var lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+    var img = lightbox.querySelector(".lightbox__img");
+    var videoWrap = lightbox.querySelector(".lightbox__video");
+    var iframe = lightbox.querySelector(".lightbox__iframe");
+    var closeBtn = lightbox.querySelector(".lightbox__close");
+
+    function open(src, alt, type) {
+      if (type === "video") {
+        iframe.src = src;
+        iframe.title = alt || "";
+        videoWrap.style.display = "block";
+        img.style.display = "none";
+      } else {
+        img.src = src;
+        img.alt = alt || "";
+        img.style.display = "block";
+        videoWrap.style.display = "none";
+      }
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function close() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      img.src = "";
+      iframe.src = "";
+    }
+
+    document.addEventListener("click", function (e) {
+      var trigger = e.target.closest("[data-lightbox]");
+      if (trigger) {
+        e.preventDefault();
+        open(
+          trigger.getAttribute("href"),
+          trigger.getAttribute("data-alt"),
+          trigger.getAttribute("data-type")
+        );
+        return;
+      }
+      if (e.target === lightbox || e.target === closeBtn) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) close();
+    });
+  })();
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

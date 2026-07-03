@@ -1,6 +1,7 @@
-{{/* Screenshot sidebar — included from layouts/baseof.html, rendered next to <main>. */}}
+{{/* Screenshot sidebar — included from layouts/baseof.html, rendered next to <main>.
+     The lightbox markup + JS is decoupled into layouts/_partials/lightbox.html so it
+     stays available even on pages that hide this sidebar. */}}
 {{- $shots := slice
-
   (dict "src" "/images/gate.jpg" "alt" "Village gate")
   (dict "src" "/images/grave-yard.jpg" "alt" "Graveyard")
   (dict "src" "/images/inside-church.jpg" "alt" "Inside the church")
@@ -31,64 +32,3 @@
     {{- end }}
   </ul>
 </aside>
-
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
-  <button class="lightbox__close" type="button" aria-label="Close">&times;</button>
-  <img class="lightbox__img" alt="">
-  <div class="lightbox__video">
-    <iframe class="lightbox__iframe" title="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</div>
-
-<script>
-  (function () {
-    "use strict";
-    var lightbox = document.getElementById("lightbox");
-    if (!lightbox) return;
-    var img = lightbox.querySelector(".lightbox__img");
-    var videoWrap = lightbox.querySelector(".lightbox__video");
-    var iframe = lightbox.querySelector(".lightbox__iframe");
-    var closeBtn = lightbox.querySelector(".lightbox__close");
-
-    function open(src, alt, type) {
-      if (type === "video") {
-        iframe.src = src;
-        iframe.title = alt || "";
-        videoWrap.style.display = "block";
-        img.style.display = "none";
-      } else {
-        img.src = src;
-        img.alt = alt || "";
-        img.style.display = "block";
-        videoWrap.style.display = "none";
-      }
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-    function close() {
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      img.src = "";
-      iframe.src = "";
-    }
-
-    document.addEventListener("click", function (e) {
-      var trigger = e.target.closest("[data-lightbox]");
-      if (trigger) {
-        e.preventDefault();
-        open(
-          trigger.getAttribute("href"),
-          trigger.getAttribute("data-alt"),
-          trigger.getAttribute("data-type")
-        );
-        return;
-      }
-      if (e.target === lightbox || e.target === closeBtn) close();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) close();
-    });
-  })();
-</script>
