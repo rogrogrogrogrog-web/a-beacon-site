@@ -30,7 +30,23 @@
       "PowerShell(\"=== public/posts/devlog-003 ===\")",
       "PowerShell(\"=== public/posts/devlog-002 ===\")",
       "PowerShell(foreach\\($u in @\\(\"http://localhost:1313/posts/devlog-003/editor.png\",\"http://localhost:1313/posts/devlog-003/jar-o-eyes.jpg\",\"http://localhost:1313/posts/devlog-002/jar-o-eyes.jpg\"\\)\\){ try { $r = Invoke-WebRequest -Uri $u -Method Head -UseBasicParsing -TimeoutSec 10; \"$\\($r.StatusCode\\)  $u\" } catch { \"FAIL $\\($_.Exception.Response.StatusCode.value__\\)  $u\" } })",
-      "PowerShell($hugo = \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\hugo.exe\"; $out = \"C:\\\\Users\\\\Roger\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--a-beacon\\\\90258a14-be3b-4df8-83ed-e01a86e7cccb\\\\scratchpad\\\\testbuild\"; & $hugo --source D:\\\\a-beacon --destination $out --quiet; \"=== clean build: posts/devlog-003 ===\"; Get-ChildItem \"$out\\\\posts\\\\devlog-003\" -Name -ErrorAction SilentlyContinue)"
+      "PowerShell($hugo = \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\hugo.exe\"; $out = \"C:\\\\Users\\\\Roger\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--a-beacon\\\\90258a14-be3b-4df8-83ed-e01a86e7cccb\\\\scratchpad\\\\testbuild\"; & $hugo --source D:\\\\a-beacon --destination $out --quiet; \"=== clean build: posts/devlog-003 ===\"; Get-ChildItem \"$out\\\\posts\\\\devlog-003\" -Name -ErrorAction SilentlyContinue)",
+      "PowerShell(git -C d:\\\\a-beacon remote -v)",
+      "PowerShell(git -C d:\\\\a-beacon branch -avv)",
+      "PowerShell(git -C d:\\\\a-beacon config --local --get-regexp \"remote|branch|url\")",
+      "PowerShell(\"=== remotes ===\")",
+      "PowerShell(\"=== branches ===\")",
+      "PowerShell(\"=== config remotes/branch ===\")",
+      "PowerShell(git -C d:\\\\a-beacon reflog -n 10 2>$null)",
+      "PowerShell(\"=== recent reflog ===\")",
+      "PowerShell(\"=== FETCH_HEAD / packed-refs ===\")",
+      "PowerShell($env:GIT_TERMINAL_PROMPT = \"0\"; $env:GCM_INTERACTIVE = \"never\"; git -C d:\\\\a-beacon ls-remote --heads origin 2>&1 | Select-Object -First 5; \"exit=$LASTEXITCODE\")",
+      "PowerShell($g = Get-Command gh -ErrorAction SilentlyContinue; if\\($g\\){ \"gh -> $\\($g.Source\\)\" } else { \"gh not installed\" }; $w = Get-Command wrangler -ErrorAction SilentlyContinue; if\\($w\\){ \"wrangler -> $\\($w.Source\\)\" } else { \"wrangler not on PATH \\(use npx wrangler\\)\" })",
+      "PowerShell(foreach\\($u in @\\(\"https://api.github.com/repos/ro6er1/a-beacon-site\",\"https://api.github.com/users/ro6er1\",\"https://api.github.com/users/rogrogrogrogrog-web\"\\)\\){ try { $r = Invoke-RestMethod -Uri $u -Headers @{ \"User-Agent\"=\"git-check\" } -TimeoutSec 15; \"OK   $u\"; if\\($r.login\\){ \"     login=$\\($r.login\\) public_repos=$\\($r.public_repos\\)\" }; if\\($r.full_name\\){ \"     full_name=$\\($r.full_name\\) private=$\\($r.private\\)\" } } catch { \"$\\($_.Exception.Response.StatusCode.value__\\)  $u\" } })",
+      "PowerShell(\"=== .gitignore ===\"; Get-Content d:\\\\a-beacon\\\\.gitignore -ErrorAction SilentlyContinue; \"=== is public/ tracked? ===\"; $t = git -C d:\\\\a-beacon ls-files public | Measure-Object -Line; \"tracked files under public/: $\\($t.Lines\\)\"; \"=== tracked root files ===\"; git -C d:\\\\a-beacon ls-files | Where-Object { $_ -notmatch '/' })",
+      "PowerShell(git -C d:\\\\a-beacon remote set-url origin https://github.com/rogrogrogrogrog-web/a-beacon-site.git)",
+      "PowerShell($env:GIT_TERMINAL_PROMPT=\"0\"; git -C d:\\\\a-beacon push -u origin main 2>&1 | Select-Object -Last 12; \"exit=$LASTEXITCODE\")",
+      "PowerShell($env:GIT_TERMINAL_PROMPT=\"0\"; \"=== remote heads ===\"; git -C d:\\\\a-beacon ls-remote --heads origin; \"=== local vs remote ===\"; git -C d:\\\\a-beacon status -sb | Select-Object -First 3; \"=== commit count pushed ===\"; git -C d:\\\\a-beacon rev-list --count origin/main)"
     ]
   }
 }
