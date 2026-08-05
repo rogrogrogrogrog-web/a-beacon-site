@@ -12,7 +12,25 @@
       "Bash(hugo)",
       "WebFetch(domain:cusdis.com)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "PowerShell(hugo version)",
+      "PowerShell(if \\($?\\) { \"---\" })",
+      "PowerShell($p = @\\(\"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\\\\hugo.exe\",\"$env:ProgramData\\\\chocolatey\\\\bin\\\\hugo.exe\",\"$env:USERPROFILE\\\\scoop\\\\shims\\\\hugo.exe\",\"$env:LOCALAPPDATA\\\\Programs\\\\hugo\\\\hugo.exe\",\"C:\\\\hugo\\\\bin\\\\hugo.exe\"\\); foreach\\($i in $p\\){ if\\(Test-Path $i\\){ \"FOUND: $i\" } }; \"--- winget/choco/scoop available? ---\"; foreach\\($c in @\\(\"winget\",\"choco\",\"scoop\",\"go\",\"npm\"\\)\\){ $g = Get-Command $c -ErrorAction SilentlyContinue; if\\($g\\){ \"$c -> $\\($g.Source\\)\" } })",
+      "PowerShell(Test-Path d:\\\\a-beacon\\\\node_modules; Get-ChildItem d:\\\\a-beacon\\\\public -Name -ErrorAction SilentlyContinue | Select-Object -First 8; \"--- last build ---\"; \\(Get-Item d:\\\\a-beacon\\\\public\\\\index.html -ErrorAction SilentlyContinue\\).LastWriteTime)",
+      "PowerShell(winget list --id Hugo.Hugo.Extended --disable-interactivity 2>$null)",
+      "PowerShell(\"--- posts ---\")",
+      "PowerShell(\"--- archetypes ---\")",
+      "PowerShell(winget install --id Hugo.Hugo.Extended -e --accept-package-agreements --accept-source-agreements --disable-interactivity)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Roger\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\" -Recurse -Filter \"hugo.exe\" | Select-Object -ExpandProperty FullName; \"=== user PATH ===\"; [Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\) -split ';' | Where-Object { $_ -match 'WinGet|hugo' })",
+      "PowerShell(\"process PATH has it? \" + \\(\\($env:PATH -split ';' | Where-Object { $_ -match 'Hugo' }\\).Count -gt 0\\); & \"C:\\\\Users\\\\Roger\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\hugo.exe\" version)",
+      "PowerShell($u = [Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); \"RAW USER PATH:\"; \"<<<$u>>>\"; \"--- contains quote char? ---\"; $u.Contains\\('\"'\\); \"--- segments ---\"; $i=0; $u -split ';' | ForEach-Object { \"$i : [$_]\"; $i++ })",
+      "PowerShell(& \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\hugo.exe\" server -D --source D:\\\\a-beacon)",
+      "PowerShell(\"=== devlog-002 \\(working?\\) ===\")",
+      "PowerShell(\"=== public/posts ===\")",
+      "PowerShell(\"=== public/posts/devlog-003 ===\")",
+      "PowerShell(\"=== public/posts/devlog-002 ===\")",
+      "PowerShell(foreach\\($u in @\\(\"http://localhost:1313/posts/devlog-003/editor.png\",\"http://localhost:1313/posts/devlog-003/jar-o-eyes.jpg\",\"http://localhost:1313/posts/devlog-002/jar-o-eyes.jpg\"\\)\\){ try { $r = Invoke-WebRequest -Uri $u -Method Head -UseBasicParsing -TimeoutSec 10; \"$\\($r.StatusCode\\)  $u\" } catch { \"FAIL $\\($_.Exception.Response.StatusCode.value__\\)  $u\" } })",
+      "PowerShell($hugo = \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Packages\\\\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\hugo.exe\"; $out = \"C:\\\\Users\\\\Roger\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--a-beacon\\\\90258a14-be3b-4df8-83ed-e01a86e7cccb\\\\scratchpad\\\\testbuild\"; & $hugo --source D:\\\\a-beacon --destination $out --quiet; \"=== clean build: posts/devlog-003 ===\"; Get-ChildItem \"$out\\\\posts\\\\devlog-003\" -Name -ErrorAction SilentlyContinue)"
     ]
   }
 }
