@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on A medieval misadventure</title>
-		<link>http://localhost:65409/posts/</link>
+		<link>http://localhost:1313/posts/</link>
 		<description>Recent content in Posts on A medieval misadventure</description>
 		<generator>Hugo</generator>
 		<language>en-gb</language>
@@ -10,28 +10,35 @@
 		
 		
 		
-			<lastBuildDate>Wed, 05 Aug 2026 10:00:00 +0100</lastBuildDate>
+			<lastBuildDate>Tue, 15 Sep 2026 10:00:00 +0100</lastBuildDate>
 		
-			<atom:link href="http://localhost:65409/posts/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Devlog 3 - Setting the Scene</title>
-				<link>http://localhost:65409/posts/devlog-003/</link>
+				<title>Devlog 4 - Redrawing and music</title>
+				<link>http://localhost:1313/posts/devlog-004/</link>
+				<pubDate>Tue, 15 Sep 2026 10:00:00 +0100</pubDate>
+				<guid>http://localhost:1313/posts/devlog-004/</guid>
+				<description>&lt;p&gt;As well as random lighting effects and dust particles, I&amp;rsquo;ve been adding and composing some music.&#xA;&#xA;&#x9;&#x9;&#x9;&lt;div&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;iframe&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;src=&#34;https://player.vimeo.com/video/1226966377?dnt=0&#34;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allow=&#34;fullscreen&#34; title=&#34;woods1-walk&#34;&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&lt;/iframe&gt;&#xA;&#x9;&#x9;&#x9;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;So I&amp;rsquo;m quite picky (I always knew this). I decided to redraw some scenes, mainly the church, as it was just huge and dull. I give you the new church:&#xA;&lt;a href=&#34;http://localhost:1313/posts/devlog-004/church.png&#34; data-lightbox data-alt=&#34;Screenshot 1&#34; class=&#34;db mv3&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/posts/devlog-004/church.png&#34; alt=&#34;Screenshot 1&#34; loading=&#34;lazy&#34; class=&#34;db mw-100&#34; /&gt;&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Devlog 3 - Starting again (4th time lucky)</title>
+				<link>http://localhost:1313/posts/devlog-003/</link>
 				<pubDate>Wed, 05 Aug 2026 10:00:00 +0100</pubDate>
-				<guid>http://localhost:65409/posts/devlog-003/</guid>
-				<description>&lt;p&gt;Where to start&amp;hellip; Ok so I gave up on S&amp;amp;Box because the licensing is a nightmare. I then spent an age creating a small engine with pygame-ce. And here&amp;rsquo;s the mad scientist part: an editor!&#xA;&lt;a href=&#34;http://localhost:65409/posts/devlog-003/editor.png&#34; data-lightbox data-alt=&#34;Screenshot 1&#34; class=&#34;db mv3&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:65409/posts/devlog-003/editor.png&#34; alt=&#34;Screenshot 1&#34; loading=&#34;lazy&#34; class=&#34;db mw-100&#34; /&gt;&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s that and so many crazy details I don&amp;rsquo;t know where to start. I&amp;rsquo;ve managed to iron out a lot of problems I&amp;rsquo;ve had with positioning and a sorts of things I thought S&amp;amp;Box did an ok job of but not really. I now have full control.&lt;/p&gt;</description>
+				<guid>http://localhost:1313/posts/devlog-003/</guid>
+				<description>&lt;p&gt;Where to start&amp;hellip; Ok so I gave up on S&amp;amp;Box because the licensing is a nightmare. I then spent an age creating a small engine with pygame-ce. And here&amp;rsquo;s the mad scientist part: an editor!&#xA;&lt;a href=&#34;http://localhost:1313/posts/devlog-003/editor.png&#34; data-lightbox data-alt=&#34;Screenshot 1&#34; class=&#34;db mv3&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/posts/devlog-003/editor.png&#34; alt=&#34;Screenshot 1&#34; loading=&#34;lazy&#34; class=&#34;db mw-100&#34; /&gt;&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s that and so many crazy details I don&amp;rsquo;t know where to start. I&amp;rsquo;ve managed to iron out a lot of problems I&amp;rsquo;ve had with positioning and a sorts of things I thought S&amp;amp;Box did an ok job of but not really. I now have full control.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Devlog 2 - Setting the Scene</title>
-				<link>http://localhost:65409/posts/devlog-002/</link>
+				<link>http://localhost:1313/posts/devlog-002/</link>
 				<pubDate>Fri, 03 Jul 2026 10:00:00 +0100</pubDate>
-				<guid>http://localhost:65409/posts/devlog-002/</guid>
-				<description>&lt;p&gt;&lt;a href=&#34;http://localhost:65409/posts/devlog-002/montage1.jpg&#34; data-lightbox data-alt=&#34;Screenshot 1&#34; class=&#34;db mv3&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:65409/posts/devlog-002/montage1.jpg&#34; alt=&#34;Screenshot 1&#34; loading=&#34;lazy&#34; class=&#34;db mw-100&#34; /&gt;&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Above is a montage of some new scenes I&amp;rsquo;ve been working on. &lt;del&gt;Not In-Game Footage&lt;/del&gt; — unlike GTA 6, this will be very close to the actual artwork (not a realistic or valid comparison, I know).&lt;/p&gt;&#xA;&lt;p&gt;FYI I use &lt;a href=&#34;https://www.adobe.com/uk/products/fresco.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Adobe Fresco&lt;/a&gt;&#xA;, and I highly recommend it. It&amp;rsquo;s totally free and very easy to use. Randomly, I started this project with the graveyard scene. I was in Wales visiting family and started doodling in Fresco. I then realised I&amp;rsquo;d spent hours on it finger‑painting. So I bought an iPad Pro and a Pencil and started adding to it and creating more pieces.&lt;/p&gt;</description>
+				<guid>http://localhost:1313/posts/devlog-002/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/posts/devlog-002/montage1.jpg&#34; data-lightbox data-alt=&#34;Screenshot 1&#34; class=&#34;db mv3&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/posts/devlog-002/montage1.jpg&#34; alt=&#34;Screenshot 1&#34; loading=&#34;lazy&#34; class=&#34;db mw-100&#34; /&gt;&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Above is a montage of some new scenes I&amp;rsquo;ve been working on. &lt;del&gt;Not In-Game Footage&lt;/del&gt; — unlike GTA 6, this will be very close to the actual artwork (not a realistic or valid comparison, I know).&lt;/p&gt;&#xA;&lt;p&gt;FYI I use &lt;a href=&#34;https://www.adobe.com/uk/products/fresco.html&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Adobe Fresco&lt;/a&gt;&#xA;, and I highly recommend it. It&amp;rsquo;s totally free and very easy to use. Randomly, I started this project with the graveyard scene. I was in Wales visiting family and started doodling in Fresco. I then realised I&amp;rsquo;d spent hours on it finger‑painting. So I bought an iPad Pro and a Pencil and started adding to it and creating more pieces.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Devlog 1 - What is A Beacon?</title>
-				<link>http://localhost:65409/posts/devlog-001/</link>
+				<link>http://localhost:1313/posts/devlog-001/</link>
 				<pubDate>Fri, 26 Jun 2026 16:48:48 +0100</pubDate>
-				<guid>http://localhost:65409/posts/devlog-001/</guid>
+				<guid>http://localhost:1313/posts/devlog-001/</guid>
 				<description>&lt;p&gt;A Beacon is a point-and-click adventure set in a dark medieval fantasy world, with humor — actual humor, not the odd giggle buried in 14 hours of fetch quests. I am heavily influenced by Monkey Island, Monty Python and early Blackadder comedy-stylings.&lt;/p&gt;&#xA;&lt;p&gt;Build wise it is a solo project I&amp;rsquo;m working on using s&amp;amp;box engine and illustrating everything by hand in Adobe Fresco. It&amp;rsquo;s early days but yeah.&lt;/p&gt;&#xA;&lt;p&gt;Here is a snippet of game play and some screen shots so far. I don&amp;rsquo;t want to give away too much so here&amp;rsquo;s a sneak-peak. More too come as and when 🪦&lt;/p&gt;</description>
 			</item>
 	</channel>
