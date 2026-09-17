@@ -1,3 +1,6 @@
 # Local Worker secrets and wrangler state
 .dev.vars
 .wrangler/
+
+# Claude Code local settings
+.claude/
