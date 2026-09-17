@@ -1,7 +1,20 @@
 {
-  "name": "a-beacon-site",
-  "compatibility_date": "2026-06-26",
-  "assets": {
-    "directory": "public"
-  }
+	"name": "a-beacon-site",
+	"main": "worker/index.js",
+	"compatibility_date": "2026-06-26",
+	"assets": {
+		"directory": "public",
+		"binding": "ASSETS",
+		// Only the comments API runs the Worker; everything else is served as static files.
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "a-beacon-comments",
+			"database_id": "748642e0-2581-4f74-8165-3f872999af6a"
+		}
+	]
 }

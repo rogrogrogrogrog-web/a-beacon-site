@@ -1,0 +1,34 @@
+{{- /*
+  Self-hosted comments. Data comes from the Worker in worker/index.js;
+  behaviour lives in static/js/comments.js.
+
+  Configure via [params.comments] in hugo.toml:
+    recaptcha_site_key = "..."   # reCAPTCHA v2 checkbox site key
+*/ -}}
+{{- with site.Params.comments -}}
+  {{- with .recaptcha_site_key -}}
+    <section id="comments" class="comments" data-page="{{ $.RelPermalink }}" data-sitekey="{{ . }}">
+      <h2 class="comments__title">Comments</h2>
+      <p class="comments__status" aria-live="polite">Loading comments…</p>
+      <ol class="comments__list"></ol>
+
+      <form class="comments__form" novalidate>
+        <h3 class="comments__form-title">Leave a comment</h3>
+        <label class="comments__label">Name
+          <input class="comments__input" name="name" maxlength="60" autocomplete="nickname" required>
+        </label>
+        <label class="comments__label">Comment
+          <textarea class="comments__input" name="message" maxlength="2000" rows="5" required></textarea>
+        </label>
+        <div class="comments__hp" aria-hidden="true">
+          <label>Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <div class="comments__captcha"></div>
+        <button class="comments__submit" type="submit">Post comment</button>
+        <p class="comments__form-status" aria-live="polite"></p>
+        <p class="comments__note">Comments appear once they've been approved.</p>
+      </form>
+    </section>
+    <script src="/js/comments.js" defer></script>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Comment moderation · A Beacon</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0;
+    padding: 1.5rem 1rem 3rem;
+    background: #111;
+    color: #fffceb;
+    font: 15px/1.5 system-ui, sans-serif;
+  }
+  main { max-width: 52rem; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 1rem; }
+  input, button { font: inherit; }
+  input {
+    padding: 0.45rem 0.6rem;
+    background: #0f0e13;
+    color: inherit;
+    border: 1px solid #3a3842;
+    border-radius: 3px;
+  }
+  button {
+    padding: 0.45rem 0.9rem;
+    border: 1px solid #3a3842;
+    border-radius: 3px;
+    background: #1c1b22;
+    color: inherit;
+    cursor: pointer;
+  }
+  button:hover { background: #2a2932; }
+  button:disabled { opacity: 0.5; cursor: wait; }
+  button.primary { background: #fffceb; color: #111; border-color: #fffceb; }
+  button.danger { border-color: #7a2e2e; color: #f3b3b3; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .tabs { margin: 1rem 0; }
+  .tabs button[aria-pressed="true"] { background: #fffceb; color: #111; }
+  #status { min-height: 1.5em; opacity: 0.75; }
+  ol { list-style: none; padding: 0; margin: 0; }
+  li {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #1c1b22;
+    border-radius: 4px;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; font-size: 0.875rem; opacity: 0.8; }
+  .meta strong { color: #fff; opacity: 1; }
+  .meta a { color: inherit; }
+  .message { margin: 0.5rem 0 0.75rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Comment moderation</h1>
+
+  <form id="login" class="row">
+    <label for="password">Admin password</label>
+    <input id="password" type="password" autocomplete="current-password" required>
+    <button class="primary" type="submit">Unlock</button>
+  </form>
+
+  <div id="panel" hidden>
+    <div class="row tabs">
+      <button type="button" data-status="pending" aria-pressed="true">Pending</button>
+      <button type="button" data-status="approved" aria-pressed="false">Approved</button>
+      <button type="button" id="refresh">Refresh</button>
+      <button type="button" id="logout">Lock</button>
+    </div>
+    <ol id="list"></ol>
+  </div>
+
+  <p id="status" aria-live="polite"></p>
+</main>
+
+<script>
+(function () {
+  const loginForm = document.getElementById('login');
+  const passwordInput = document.getElementById('password');
+  const panel = document.getElementById('panel');
+  const list = document.getElementById('list');
+  const status = document.getElementById('status');
+  const tabs = document.querySelectorAll('[data-status]');
+  const dateFormat = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short' });
+
+  let password = '';
+  let currentStatus = 'pending';
+  try { password = sessionStorage.getItem('commentsAdmin') || ''; } catch (e) {}
+
+  async function api(path, options) {
+    const res = await fetch(path, Object.assign({}, options, {
+      headers: { Authorization: 'Bearer ' + password },
+    }));
+    if (res.status === 401) {
+      lock('Wrong password.');
+      throw new Error('Unauthorised');
+    }
+    const data = await res.json().catch(function () { return {}; });
+    if (!res.ok) throw new Error(data.error || 'HTTP ' + res.status);
+    return data;
+  }
+
+  function lock(message) {
+    password = '';
+    try { sessionStorage.removeItem('commentsAdmin'); } catch (e) {}
+    panel.hidden = true;
+    loginForm.hidden = false;
+    list.replaceChildren();
+    status.textContent = message || '';
+  }
+
+  async function load() {
+    status.textContent = 'Loading…';
+    try {
+      const data = await api('/api/admin/comments?status=' + currentStatus);
+      loginForm.hidden = true;
+      panel.hidden = false;
+      render(data.comments || []);
+    } catch (err) {
+      if (err.message !== 'Unauthorised') status.textContent = 'Error: ' + err.message;
+    }
+  }
+
+  function render(comments) {
+    list.replaceChildren();
+    status.textContent = comments.length ? '' : 'No ' + currentStatus + ' comments.';
+
+    for (const comment of comments) {
+      const item = document.createElement('li');
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      const name = document.createElement('strong');
+      name.textContent = comment.name;
+      const page = document.createElement('a');
+      page.href = comment.page + '#comments';
+      page.target = '_blank';
+      page.textContent = comment.page;
+      const time = document.createElement('span');
+      time.textContent = dateFormat.format(new Date(comment.created_at));
+      meta.append(name, page, time);
+
+      const message = document.createElement('p');
+      message.className = 'message';
+      message.textContent = comment.message;
+
+      const actions = document.createElement('div');
+      actions.className = 'row';
+      if (comment.status === 'pending') {
+        actions.append(actionButton('Approve', 'primary', function () {
+          return api('/api/admin/comments/' + comment.id + '/approve', { method: 'POST' });
+        }, item));
+      } else {
+        actions.append(actionButton('Unapprove', '', function () {
+          return api('/api/admin/comments/' + comment.id + '/unapprove', { method: 'POST' });
+        }, item));
+      }
+      actions.append(actionButton('Delete', 'danger', function () {
+        if (!confirm('Delete this comment from ' + comment.name + '? This cannot be undone.')) return null;
+        return api('/api/admin/comments/' + comment.id, { method: 'DELETE' });
+      }, item));
+
+      item.append(meta, message, actions);
+      list.append(item);
+    }
+  }
+
+  function actionButton(label, className, run, item) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = className;
+    button.textContent = label;
+    button.addEventListener('click', async function () {
+      const request = run();
+      if (!request) return;
+      button.disabled = true;
+      try {
+        await request;
+        item.remove();
+        if (!list.children.length) status.textContent = 'No ' + currentStatus + ' comments.';
+      } catch (err) {
+        button.disabled = false;
+        if (err.message !== 'Unauthorised') status.textContent = 'Error: ' + err.message;
+      }
+    });
+    return button;
+  }
+
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    password = passwordInput.value;
+    passwordInput.value = '';
+    try { sessionStorage.setItem('commentsAdmin', password); } catch (e) {}
+    load();
+  });
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      currentStatus = tab.dataset.status;
+      tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t === tab)); });
+      load();
+    });
+  });
+
+  document.getElementById('refresh').addEventListener('click', load);
+  document.getElementById('logout').addEventListener('click', function () { lock(); });
+
+  if (password) load();
+})();
+</script>
+</body>
+</html>

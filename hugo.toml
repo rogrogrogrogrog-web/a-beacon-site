@@ -12,9 +12,9 @@ theme = 'ananke'
   footer_title = "A Beacon"
   text_color = "washed-yellow"
 
-  [params.cusdis]
-    host = "https://cusdis.com"
-    app_id = "70774b48-8a2c-4760-b907-fb687d608527"
+  # Self-hosted comments (worker/index.js). The section is hidden until a key is set.
+  [params.comments]
+    recaptcha_site_key = "6LdvzsAtAAAAAP_zP23lKL0v42oc_hokXV4SPs27"
 
 [[menus.main]]
   name = "Home"

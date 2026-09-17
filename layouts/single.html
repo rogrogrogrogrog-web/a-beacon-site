@@ -65,11 +65,11 @@
       {{- partials.Include "hook.html" (dict "hook" "content-after" "context" .) -}}
       {{- partials.Include "categories.html" . -}}
       {{- partials.Include "tags.html" . -}}
-      {{ if compare.Eq .Section "posts" }}{{ with .Site.Params.cusdis }}{{ with .app_id }}
+      {{ if compare.Eq .Section "posts" }}
       <div class="mt6 instapaper_ignoref">
-        {{ partials.Include "cusdis.html" $ }}
+        {{ partials.Include "comments.html" . }}
       </div>
-      {{ end }}{{ end }}{{ end }}
+      {{ end }}
       {{ if .Site.Params.commentoEnable }}
       <div class="mt6 instapaper_ignoref">
         {{- partials.Include "commento.html" . -}}

@@ -45,6 +45,36 @@ Handy variants:
 - New post: `hugo new content/posts/devlog-003.md` (uses `archetypes/default.md`)
 - Site config: `hugo.toml`
 
+## Comments
+
+Self-hosted: a Cloudflare Worker (`worker/index.js`) stores comments in D1. New comments are
+held as pending until approved at `/admin/comments/`. Spam protection is reCAPTCHA v2
+(checkbox), a honeypot field and a per-IP rate limit.
+
+- Posts only; the comments section stays hidden until `recaptcha_site_key` is set in `hugo.toml`
+- Front-end: `layouts/_partials/comments.html` + `static/js/comments.js`
+- Admin page: `static/admin/comments/index.html`
+
+One-time setup:
+
+1. Create reCAPTCHA **v2 "I'm not a robot"** keys at <https://www.google.com/recaptcha/admin>
+   for `abeacongame.com` (add `localhost` / `127.0.0.1` to test locally). Put the site key in
+   `hugo.toml` under `[params.comments]`.
+2. Create the database, copy its id into `wrangler.jsonc`, then create the table:
+   ```powershell
+   npx wrangler d1 create a-beacon-comments
+   npx wrangler d1 execute a-beacon-comments --remote --file worker/schema.sql
+   ```
+3. Set the secrets:
+   ```powershell
+   npx wrangler secret put RECAPTCHA_SECRET
+   npx wrangler secret put ADMIN_PASSWORD
+   ```
+
+Local testing: `.dev.vars` (gitignored) holds local secrets. Build the site, then
+`npx wrangler d1 execute a-beacon-comments --local --file worker/schema.sql` once and
+`npx wrangler dev`, which serves `public/` plus the API on <http://localhost:8787>.
+
 ## Deploy
 
 Cloudflare, via `wrangler.jsonc`, which serves the built `public/` directory.
