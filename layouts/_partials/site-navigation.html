@@ -12,8 +12,9 @@
       {{ if .Site.Menus.main }}
         <ul class="{{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pr0 ml3" "pl0 mr3" }}">
           {{ range .Site.Menus.main }}
+          {{ $external := or (strings.HasPrefix .URL "http://") (strings.HasPrefix .URL "https://") }}
           <li class="list f5 f4-ns fw4 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3" "pr3" }}">
-            <a class="hover-white white-90 no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
+            <a class="{{ if .Params.button }}nav-button{{ else }}hover-white white-90{{ end }} no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
               {{ .Name }}
             </a>
           </li>

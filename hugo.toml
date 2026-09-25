@@ -22,6 +22,13 @@ theme = 'ananke'
   weight = 10
 
 [[menus.main]]
+  name = "Steam"
+  url = "https://store.steampowered.com/app/5308630/A_Beacon/"
+  weight = 15
+  [menus.main.params]
+    button = true
+
+[[menus.main]]
   name = "Contact"
   url = "/contact/"
   weight = 20

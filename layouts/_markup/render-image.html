@@ -4,11 +4,26 @@
 
   Resolves bundle-local filenames (e.g. montage1.jpg) via Page Resources so
   they become absolute URLs; external URLs (http://…) pass through unchanged.
+
+  Give the image a URL as its title to link it somewhere instead of opening the
+  lightbox — it then opens in a new tab:
+
+    ![Alt text](steam.png "https://example.com/")
 */ -}}
 {{- $src := .Destination -}}
 {{- with .Page.Resources.GetMatch $src -}}
   {{- $src = .RelPermalink -}}
 {{- end -}}
+{{- $link := "" -}}
+{{- if or (strings.HasPrefix .Title "http://") (strings.HasPrefix .Title "https://") -}}
+  {{- $link = .Title -}}
+{{- end -}}
+{{- if $link -}}
+<a href="{{ $link | safeURL }}" target="_blank" rel="noopener noreferrer" class="db mv3">
+  <img src="{{ $src | safeURL }}" alt="{{ .PlainText }}" loading="lazy" class="db mw-100" />
+</a>
+{{- else -}}
 <a href="{{ $src | safeURL }}" data-lightbox data-alt="{{ .PlainText }}" class="db mv3">
   <img src="{{ $src | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" class="db mw-100" />
 </a>
+{{- end -}}

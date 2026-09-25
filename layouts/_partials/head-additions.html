@@ -178,6 +178,29 @@ main[role="main"] {
 .lightbox__close:hover,
 .lightbox__close:focus { color: #ddd; outline: none; }
 
+/* Centre the menu on narrow screens (it sits beside the logo on desktop) */
+@media screen and (max-width: 59.9em) {
+  nav[role="navigation"] ul {
+    text-align: center;
+    padding-left: 0;
+    margin-right: 0;
+  }
+  nav[role="navigation"] li:last-child { padding-right: 0; }
+}
+
+/* Menu items marked `button = true` in hugo.toml */
+.nav-button {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #fffceb;
+  color: #111;
+  border-radius: 2px;
+  line-height: 1.6;
+}
+
+.nav-button:hover,
+.nav-button:focus { background: #fff; color: #000; }
+
 /* Comments */
 .comments {
   padding: 1.25rem;
