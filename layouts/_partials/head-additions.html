@@ -218,20 +218,31 @@ main[role="main"] {
 /* Nothing should be able to push the page wider than the screen (iOS Safari
    in particular won't shrink long URLs or oversized images on its own). */
 html, body { overflow-x: hidden; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 img, video, iframe { max-width: 100%; }
 img { height: auto; }
 
-/* main has items-start, so on mobile (flex column) the content column sizes to
-   its min-content width; `break-word` doesn't shrink that, so a long URL made
-   the whole column wider than the screen. Stretch it and let links break. */
-.page-content { width: 100%; }
-@media screen and (min-width: 60em) {
-  .page-content { width: auto; }
+/* main has items-start, so on mobile (flex column) the content column sized to
+   its min-content width and a long URL pushed it past the screen edge. Below
+   the desktop breakpoint, pin every column of main to the screen width. */
+@media screen and (max-width: 59.9em) {
+  main[role="main"] { align-items: stretch; }
+  main[role="main"] > * {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .page-content * { max-width: 100%; }
 }
 
-.page-content a,
-.page-content p { overflow-wrap: anywhere; }
+/* Let long words and URLs break anywhere. word-break is the WebKit fallback for
+   Safari versions without overflow-wrap: anywhere. */
+.page-content {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
 /* Comments */
 .comments {
