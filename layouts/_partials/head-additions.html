@@ -196,10 +196,24 @@ main[role="main"] {
   color: #111;
   border-radius: 2px;
   line-height: 1.6;
+  transition: opacity .3s ease;
 }
 
+.nav-button:hover {
+  opacity: 0.5;
+}
 .nav-button:hover,
 .nav-button:focus { background: #fff; color: #000; }
+
+/* Small image shown before a menu item's text */
+.nav-icon {
+  height: 1.2em;
+  width: auto;
+  margin-right: 0.4em;
+  vertical-align: -0.2em;
+  position: relative;
+  top: 2px;
+}
 
 /* Comments */
 .comments {

@@ -27,6 +27,7 @@ theme = 'ananke'
   weight = 15
   [menus.main.params]
     button = true
+    icon = "/images/steam-circled.jpg"
 
 [[menus.main]]
   name = "Contact"

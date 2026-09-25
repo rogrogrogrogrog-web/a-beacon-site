@@ -15,7 +15,7 @@
           {{ $external := or (strings.HasPrefix .URL "http://") (strings.HasPrefix .URL "https://") }}
           <li class="list f5 f4-ns fw4 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3" "pr3" }}">
             <a class="{{ if .Params.button }}nav-button{{ else }}hover-white white-90{{ end }} no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
-              {{ .Name }}
+              {{ with .Params.icon }}<img src="{{ urls.RelURL . }}" alt="" class="nav-icon">{{ end }}{{ .Name }}
             </a>
           </li>
           {{ end }}
