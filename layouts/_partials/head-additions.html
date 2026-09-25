@@ -244,6 +244,11 @@ img { height: auto; }
   word-break: break-word;
 }
 
+/* Text links inside posts (not image links, which are .db blocks) */
+.post-body a:not(.db) { color: #ffd700; }
+.post-body a:not(.db):hover,
+.post-body a:not(.db):focus { color: #fff3a3; }
+
 /* Comments */
 .comments {
   padding: 1.25rem;
