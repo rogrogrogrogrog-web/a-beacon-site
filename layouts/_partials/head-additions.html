@@ -215,6 +215,16 @@ main[role="main"] {
   top: 2px;
 }
 
+/* Nothing should be able to push the page wider than the screen (iOS Safari
+   in particular won't shrink long URLs or oversized images on its own). */
+html, body { overflow-x: hidden; }
+
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+
+.page-content a,
+.page-content p { overflow-wrap: break-word; }
+
 /* Comments */
 .comments {
   padding: 1.25rem;
