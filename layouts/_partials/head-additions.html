@@ -222,8 +222,16 @@ html, body { overflow-x: hidden; }
 img, video, iframe { max-width: 100%; }
 img { height: auto; }
 
+/* main has items-start, so on mobile (flex column) the content column sizes to
+   its min-content width; `break-word` doesn't shrink that, so a long URL made
+   the whole column wider than the screen. Stretch it and let links break. */
+.page-content { width: 100%; }
+@media screen and (min-width: 60em) {
+  .page-content { width: auto; }
+}
+
 .page-content a,
-.page-content p { overflow-wrap: break-word; }
+.page-content p { overflow-wrap: anywhere; }
 
 /* Comments */
 .comments {
