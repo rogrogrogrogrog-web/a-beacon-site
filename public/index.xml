@@ -14,7 +14,7 @@
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Devlog 5 - Steam!</title>
+				<title>Devlog 6 - Steam demo is now live!</title>
 				<link>http://localhost:1313/posts/devlog-006/</link>
 				<pubDate>Tue, 29 Sep 2026 10:00:00 +0100</pubDate>
 				<guid>http://localhost:1313/posts/devlog-006/</guid>
