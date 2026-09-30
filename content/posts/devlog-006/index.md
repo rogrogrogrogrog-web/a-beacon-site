@@ -1,7 +1,7 @@
 +++
 date = '2026-09-29T10:00:00+01:00'
 draft = false
-title = 'Devlog 5 - Steam!'
+title = 'Devlog 6 - Steam demo is now live!'
 +++
 
 And just like that 'A Beacon' demo is now live: [https://store.steampowered.com/app/5308630/A_Beacon/](https://store.steampowered.com/app/5308630/A_Beacon/)
