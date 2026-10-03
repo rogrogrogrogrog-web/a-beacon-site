@@ -4,3 +4,7 @@
 
 # Claude Code local settings
 .claude/
+
+# Editor/debug leftovers
+debug.log
+*.tmp.*

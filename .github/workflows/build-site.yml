@@ -1,0 +1,45 @@
+# Rebuilds public/ whenever content or layouts change on main, so edits made
+# on GitHub go live without running hugo locally. Cloudflare serves public/.
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "public/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Hugo
+        run: |
+          curl -sSL -o hugo.tgz https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz
+          tar xzf hugo.tgz hugo && rm hugo.tgz
+
+      - name: Build
+        run: ./hugo && rm hugo
+
+      - name: Commit public/
+        run: |
+          git add public
+          if git diff --cached --quiet; then
+            echo "public/ already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild public/"
+          git push
