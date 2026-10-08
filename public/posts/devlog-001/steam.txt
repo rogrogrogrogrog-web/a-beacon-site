@@ -1,0 +1,20 @@
+TITLE: Devlog 1 - What is A Beacon?
+----- paste everything below into the announcement body -----
+
+A Beacon is a point-and-click adventure set in a dark medieval fantasy world, with humor — actual humor, not the odd giggle buried in 14 hours of fetch quests. I am heavily influenced by Monkey Island, Monty Python and early Blackadder comedy-stylings.
+
+Build wise it is a solo project I’m working on using s&box engine and illustrating everything by hand in Adobe Fresco. It’s early days but yeah.
+
+Here is a snippet of game play and some screen shots so far. I don’t want to give away too much so here’s a sneak-peak. More too come as and when 🪦
+
+[url=https://vimeo.com/1204796885]Watch the video[/url]
+
+=== ADD IMAGE HERE: https://img.itch.zone/aW1nLzI4MTAxOTU4LmpwZw==/original/dr2KOn.jpg ===
+
+=== ADD IMAGE HERE: https://img.itch.zone/aW1nLzI4MTAxOTMwLmpwZw==/original/EylvCl.jpg ===
+
+=== ADD IMAGE HERE: https://img.itch.zone/aW1nLzI4MTAxOTA2LmpwZw==/original/k%2FLAw%2B.jpg ===
+
+=== ADD IMAGE HERE: https://img.itch.zone/aW1nLzI4MTAyMDA5LmpwZw==/original/nWECRr.jpg ===
+
+[i]Originally posted on the [url=https://abeacongame.com/posts/devlog-001/]A Beacon devlog[/url].[/i]

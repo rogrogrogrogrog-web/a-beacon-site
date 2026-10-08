@@ -1,0 +1,14 @@
+TITLE: Devlog 4 - Redrawing and music
+----- paste everything below into the announcement body -----
+
+As well as random lighting effects and dust particles, I’ve been adding and composing some music.
+
+[url=https://vimeo.com/1226966377]Watch the video[/url]
+
+So I’m quite picky (I always knew this). I decided to redraw some scenes, mainly the church, as it was just huge and dull. I give you the new church:
+
+=== ADD IMAGE HERE: https://abeacongame.com/posts/devlog-004/church.png ===
+
+You may also notice the main character is no longer ginger. I figured he had enough problems in life. Well, that and people kept telling me he looked like a certain LucasArts character (when he really doesn’t).
+
+[i]Originally posted on the [url=https://abeacongame.com/posts/devlog-004/]A Beacon devlog[/url].[/i]

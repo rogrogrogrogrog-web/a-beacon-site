@@ -1,0 +1,10 @@
+TITLE: Devlog 6 - Steam demo is now live!
+----- paste everything below into the announcement body -----
+
+And just like that ‘A Beacon’ demo is now live: [url=https://store.steampowered.com/app/5308630/A_Beacon/]https://store.steampowered.com/app/5308630/A_Beacon/[/url]
+
+=== ADD IMAGE HERE: https://abeacongame.com/posts/devlog-006/a-beaon-steam-demo.jpg ===
+
+Enjoy, let me know what you think below!
+
+[i]Originally posted on the [url=https://abeacongame.com/posts/devlog-006/]A Beacon devlog[/url].[/i]
