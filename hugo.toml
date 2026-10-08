@@ -33,3 +33,17 @@ theme = 'ananke'
   name = "Contact"
   url = "/contact/"
   weight = 20
+
+# Steam-formatted copy of each devlog at /posts/<slug>/steam.txt, ready to
+# paste into a Steamworks announcement (template: layouts/single.steam.txt).
+[outputFormats.steam]
+  mediaType = "text/plain"
+  baseName = "steam"
+  isPlainText = true
+  notAlternative = true
+
+[[cascade]]
+  outputs = ["html", "steam"]
+  [cascade.target]
+    kind = "page"
+    path = "{/posts/**}"

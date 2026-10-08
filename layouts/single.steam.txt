@@ -1,0 +1,50 @@
+{{- /*
+  Steam-formatted copy of a devlog, published at /posts/<slug>/steam.txt.
+  Converts the rendered post HTML into Steam's BBCode so it can be pasted
+  straight into a Steamworks announcement. Images and videos can't be
+  embedded from here, so they become placeholders to upload by hand.
+*/ -}}
+{{- /* Always link to the live site, even under `hugo server` (localhost) */ -}}
+{{- $live := "https://abeacongame.com/" -}}
+{{- $base := strings.TrimSuffix "/" $live -}}
+{{- $permalink := strings.Replace .Permalink site.BaseURL $live -}}
+{{- $s := string .Content -}}
+
+{{- /* Vimeo embeds -> link (Steam only embeds YouTube) */ -}}
+{{- $s = $s | replaceRE `(?s)<div[^>]*>\s*<iframe[^>]*player\.vimeo\.com/video/(\d+).*?</iframe>\s*</div>` "\n[url=https://vimeo.com/${1}]Watch the video[/url]\n" -}}
+{{- $s = $s | replaceRE `(?s)<iframe[^>]*player\.vimeo\.com/video/(\d+).*?</iframe>` "\n[url=https://vimeo.com/${1}]Watch the video[/url]\n" -}}
+
+{{- /* Images (wrapped in a link by render-image.html) -> upload placeholder */ -}}
+{{- $s = $s | replaceRE `(?s)<a [^>]*>\s*<img [^>]*src="([^"]+)"[^>]*>\s*</a>` "\n\n=== ADD IMAGE HERE: ${1} ===\n\n" -}}
+{{- $s = $s | replaceRE `<img [^>]*src="([^"]+)"[^>]*>` "\n\n=== ADD IMAGE HERE: ${1} ===\n\n" -}}
+{{- $s = $s | replaceRE `=== ADD IMAGE HERE: /` (printf "=== ADD IMAGE HERE: %s/" $base) -}}
+
+{{- /* Links */ -}}
+{{- $s = $s | replaceRE `(?s)<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>` "[url=${1}]${2}[/url]" -}}
+{{- $s = $s | replaceRE `\[url=/` (printf "[url=%s/" $base) -}}
+
+{{- /* Headings, text styles, lists, quotes, code */ -}}
+{{- $s = $s | replaceRE `<h([1-3])[^>]*>` "\n[h${1}]" | replaceRE `</h([1-3])>` "[/h${1}]\n" -}}
+{{- $s = $s | replaceRE `<h[4-6][^>]*>` "\n[h3]" | replaceRE `</h[4-6]>` "[/h3]\n" -}}
+{{- $s = $s | replaceRE `<(strong|b)>` "[b]" | replaceRE `</(strong|b)>` "[/b]" -}}
+{{- $s = $s | replaceRE `<(em|i)>` "[i]" | replaceRE `</(em|i)>` "[/i]" -}}
+{{- $s = $s | replaceRE `<(del|s)>` "[strike]" | replaceRE `</(del|s)>` "[/strike]" -}}
+{{- $s = $s | replaceRE `<ul[^>]*>` "\n[list]" | replaceRE `</ul>` "[/list]\n" -}}
+{{- $s = $s | replaceRE `<ol[^>]*>` "\n[olist]" | replaceRE `</ol>` "[/olist]\n" -}}
+{{- $s = $s | replaceRE `<li[^>]*>` "\n[*]" | replaceRE `</li>` "" -}}
+{{- $s = $s | replaceRE `<blockquote[^>]*>` "\n[quote]" | replaceRE `</blockquote>` "[/quote]\n" -}}
+{{- $s = $s | replaceRE `<pre[^>]*><code[^>]*>` "\n[code]" | replaceRE `</code></pre>` "[/code]\n" -}}
+{{- $s = $s | replaceRE `<hr[^>]*>` "\n[hr][/hr]\n" -}}
+{{- $s = $s | replaceRE `<br[^>]*>` "\n" -}}
+
+{{- /* Paragraphs, leftover tags, entities, spacing */ -}}
+{{- $s = $s | replaceRE `</p>` "\n\n" -}}
+{{- $s = $s | replaceRE `<[^>]+>` "" -}}
+{{- $s = $s | transform.HTMLUnescape -}}
+{{- $s = $s | replaceRE `[ \t]+\n` "\n" | replaceRE `\n[ \t]+` "\n" | replaceRE `\n{3,}` "\n\n" -}}
+TITLE: {{ .Title }}
+----- paste everything below into the announcement body -----
+
+{{ strings.TrimSpace $s }}
+
+[i]Originally posted on the [url={{ $permalink }}]A Beacon devlog[/url].[/i]
