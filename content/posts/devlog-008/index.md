@@ -1,6 +1,6 @@
 +++
 date = '2026-10-08T10:00:00+01:00'
-draft = true
+draft = false
 title = 'Devlog 8 - Flinging cat shit puzzle!'
 +++
 
