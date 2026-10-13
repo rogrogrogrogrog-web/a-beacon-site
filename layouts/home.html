@@ -33,7 +33,7 @@
 
       {{ if compare.Ge $section_count (math.Add $n_posts 1) }}
         <section class="w-100">
-          <h1 class="f3">{{ lang.Translate "more" }}</h1>
+          <h1 class="f3">Ye Olde Posts</h1>
           {{/* List every post after the initial $n_posts items */}}
           <ul class="list pl0 mt0">
             {{ range (collections.After $n_posts $section) }}
