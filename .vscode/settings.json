@@ -1,0 +1,11 @@
+{
+  // Terminal for this repo: normal PowerShell plus scripts/git-push.ps1,
+  // which makes `git push` run `git ship`.
+  "terminal.integrated.profiles.windows": {
+    "PowerShell (a-beacon)": {
+      "source": "PowerShell",
+      "args": ["-NoExit", "-Command", "if (Test-Path .\\scripts\\git-push.ps1) { . .\\scripts\\git-push.ps1 }"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell (a-beacon)"
+}
